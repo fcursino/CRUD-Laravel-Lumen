@@ -1,2 +1,2 @@
 # CRUD-Laravel-Lumen
-CRUD em PHP
+CRUD em PHP (agora com autenticação JWT)
