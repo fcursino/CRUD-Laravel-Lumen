@@ -21,7 +21,8 @@ class CustomerController extends Controller
         DB::table('customers')
         ->insert([
             'name' => $request->name,
-            'email' => $request->email
+            'email' => $request->email,
+            'password' =>$request->password
         ]);
         return response()->json(['status' => 'ok'], 200);
     }
@@ -31,7 +32,8 @@ class CustomerController extends Controller
         ->where('id', $request->id)
         ->update([
             'name' => $request->name,
-            'email' => $request->email
+            'email' => $request->email,
+            'password' =>$request->password
         ]);
         return response()->json(['status' => 'ok'], 200);
     }

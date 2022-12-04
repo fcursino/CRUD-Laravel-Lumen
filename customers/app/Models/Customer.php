@@ -14,4 +14,8 @@ class Customer extends Model
     public function getCustomerById($id) {
         return Customer::where('id', $id)->get();
     }
+
+    public function getCustomerByEmail($email) {
+        return Customer::where('email', $email)->get();
+    }
 }

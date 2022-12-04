@@ -17,12 +17,17 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('customers', 'CustomerController@listar_customers');
+$router->post('login', 'LoginController@login');
 
-$router->get('customers/{customer_id}', 'CustomerController@listar_customer');
+$router->group(['middleware' => 'auth'], function () use ($router) {
 
-$router->post('customers', 'CustomerController@criar_customer');
+    $router->get('customers', 'CustomerController@listar_customers');
 
-$router->put('customers', 'CustomerController@atualizar_customer');
+    $router->get('customers/{customer_id}', 'CustomerController@listar_customer');
 
-$router->delete('customers/{customer_id}', 'CustomerController@excluir_customer');
+    $router->post('customers', 'CustomerController@criar_customer');
+
+    $router->put('customers', 'CustomerController@atualizar_customer');
+
+    $router->delete('customers/{customer_id}', 'CustomerController@excluir_customer');
+});
